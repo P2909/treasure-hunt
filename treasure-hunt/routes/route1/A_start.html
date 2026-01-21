@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkpoint A</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+<h2>Checkpoint A</h2>
+<p>Enter your team number to continue.</p>
+
+<form
+  action="https://docs.google.com/forms/d/e/1FAIpQLScZ1U9RnxA8T1iDyusjruMXbanuxM5ms8_vumkX44O5db-zJg/formResponse"
+  method="POST"
+  target="hidden_iframe"
+  onsubmit="setTimeout(function(){ window.location.href='A_clue.html'; }, 300);"
+>
+
+  <input type="text" name="entry.1251204413" placeholder="Team Number" required>
+
+  <input type="hidden" name="entry.1865076517" value="1">
+  <input type="hidden" name="entry.1000834704" value="A">
+
+  <button type="submit">Continue</button>
+</form>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+</body>
+</html>
+
