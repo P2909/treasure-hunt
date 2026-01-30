@@ -1,22 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clue</title>
+
+  <!-- Mobile friendly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Common styling -->
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
+
 <body>
 
-<h2>📄First irregular spending point.</h2>
+<div class="container">
 
-<p>
+  <h2>Audit Log</h2>
 
-Location same.
- Building different.
- Purpose unchanged.
-</p>
+  <!-- MAIN CLUE -->
+  <p>
+    Location same.  
+    Building different.  
+    Purpose unchanged.
+  </p>
 
-<p><b>Scan the next QR once you reach the location.</b></p>
+  <!-- HINT BUTTON (hidden initially) -->
+  <button id="hintBtn" onclick="showHint()" style="display:none;">
+    Need a hint?
+  </button>
+
+  <!-- HINT TEXT -->
+  <div id="hintBox" style="display:none; margin-top:18px; color:#facc15;">
+    <b>Hint:</b> Campus store jahan daily essentials milte hain.
+  </div>
+
+</div>
+
+<script>
+function showHint() {
+  document.getElementById("hintBox").style.display = "block";
+}
+
+// show hint button after 7 minutes
+setTimeout(function(){
+  document.getElementById("hintBtn").style.display = "block";
+}, 7 * 60 * 1000);
+</script>
 
 </body>
 </html>
+
+
 
