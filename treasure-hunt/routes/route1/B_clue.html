@@ -2,11 +2,7 @@
 <html>
 <head>
   <title>Clue</title>
-
-  <!-- Mobile friendly -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Common styling -->
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
 
@@ -23,9 +19,14 @@
     Purpose unchanged.
   </p>
 
-  <!-- HINT BUTTON (hidden initially) -->
+  <!-- TIMER -->
+  <p id="timer" style="margin-top:15px; color:#94a3b8;">
+    Hint available in 07:00
+  </p>
+
+  <!-- HINT BUTTON -->
   <button id="hintBtn" onclick="showHint()" style="display:none;">
-    Need a hint?
+    Show Hint
   </button>
 
   <!-- HINT TEXT -->
@@ -36,14 +37,31 @@
 </div>
 
 <script>
+let timeLeft = 7 * 60; // 7 minutes in seconds
+const timerEl = document.getElementById("timer");
+const hintBtn = document.getElementById("hintBtn");
+
+const countdown = setInterval(() => {
+  let minutes = Math.floor(timeLeft / 60);
+  let seconds = timeLeft % 60;
+
+  timerEl.innerText =
+    "Hint available in " +
+    String(minutes).padStart(2, '0') + ":" +
+    String(seconds).padStart(2, '0');
+
+  timeLeft--;
+
+  if (timeLeft < 0) {
+    clearInterval(countdown);
+    timerEl.innerText = "Hint unlocked";
+    hintBtn.style.display = "block";
+  }
+}, 1000);
+
 function showHint() {
   document.getElementById("hintBox").style.display = "block";
 }
-
-// show hint button after 7 minutes
-setTimeout(function(){
-  document.getElementById("hintBtn").style.display = "block";
-}, 7 * 60 * 1000);
 </script>
 
 </body>
